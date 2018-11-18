@@ -3,25 +3,26 @@ package pl.mareksowa;
 import java.util.Scanner;
 
 public class Menu {
-    private Scanner input;
+    private Scanner scanner;
     private Printer pr;
-    private boolean conntinueLoop;
 
     public Menu() {
-        this.input = new Scanner(System.in);
+        this.scanner = new Scanner(System.in);
         this.pr = new Printer();
-        this.conntinueLoop = true;
     }
 
-    String choice = input.nextLine();
+
     //bedzie wyswietlane wszystko do uzytkownika i dzialal program
     public void startMenu() {
+        String choice;
+        PhoneBook phoneBook = new PhoneBook("Nasza Ksiazka Defaultowa");
+        boolean conntinueLoop = true;
         pr.print("Witaj w ksiazce");
 
         do {
             pr.print("Aby dodac kontakt wybierz 1,  Aby usunac wybierz 2 , " +
                     "Aby wyswietlic wpisz 3, Aby wyjsc wybierz 4");
-
+            choice = scanner.next();
             switch (choice) {
                 case "1" : {
                     // metoda dodawania
