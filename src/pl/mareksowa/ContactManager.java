@@ -43,6 +43,7 @@ public class ContactManager {
                 return true;
             }
         }
+        //* trzeba zrobic tak by nie dodawalo tych samych kontaktow
         return false;
     }
     //sprawdz czy ksiazka nie jest zapelniona
