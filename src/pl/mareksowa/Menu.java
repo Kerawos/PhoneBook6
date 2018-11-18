@@ -32,12 +32,11 @@ public class Menu {
                         getPrinter().print("Nie mozna zapisac kontaktu");
                     }else{
                         getPrinter().print("Podaj imie");
-                        String name = getScanner().nextLine();
+                        String name = getScanner().next();
                         getPrinter().print("Podaj nazwisko");
-                        String surname = getScanner().nextLine();
+                        String surname = getScanner().next();
                         getPrinter().print("Podaj numer telefonu");
-                        String phoneNumber = getScanner().nextLine();
-
+                        String phoneNumber = getScanner().next();
                         Contact contact = new Contact(name, surname, phoneNumber);
                          if(cm.canAddToPhoneBook(phoneBook, contact)){
                              cm.addNewContact(phoneBook, contact);
@@ -46,7 +45,6 @@ public class Menu {
                              getPrinter().print("Nie mozna dodac kontaktu");
                          }
                     }
-
                     break;
                 }
                 case "2" : {
@@ -81,15 +79,6 @@ public class Menu {
         }while(conntinueLoop);
     }
 
-
-    //run program
-    // wyswietlanie
-
-    //dodawanie
-
-    //usuwanie
-
-    //wyjdz z programu
 
     public Scanner getScanner() {
         return scanner;

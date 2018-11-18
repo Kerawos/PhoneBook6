@@ -2,37 +2,74 @@ package pl.mareksowa;
 
 public class ContactManager {
 
-    //dodaj
-    public PhoneBook addNewContact(PhoneBook phoneBook, Contact contactToAdd){
+    private Printer printer;
 
-        return null;
+    public ContactManager() {
+        this.printer = new Printer();
+    }
+
+    //dodaj
+    public void addNewContact(PhoneBook phoneBook, Contact contactToAdd){
+        for (int i = 0; i < phoneBook.getContacts().length; i++) {
+            if (phoneBook.getContacts()[i] == null) {
+                phoneBook.getContacts()[i] = contactToAdd;
+                break;
+            }
+        }
     }
 
     //usun
-    public PhoneBook deleteContact(PhoneBook phoneBook, int contactIndexToDelete){
-
-        return null;
+    public void deleteContact(PhoneBook phoneBook, int contactIndexToDelete){
+        phoneBook.getContacts()[contactIndexToDelete] = null;
     }
 
     //zobacz wszystkie kontakty
     public void showAllContacts(PhoneBook phoneBook){
-
+        for (int i = 0; i < phoneBook.getContacts().length; i++) {
+            if (phoneBook.getContacts()[i]!=null){
+                getPrinter().print(i + ". Imie: "+phoneBook.getContacts()[i].getName()
+                        +", Nazwisko: " + phoneBook.getContacts()[i].getSurname()
+                        +", Numer: " + phoneBook.getContacts()[i].getPhoneNumber());
+            }
+        }
     }
+
+
 
     //sprawdz czy mozna dodac
     public boolean canAddToPhoneBook(PhoneBook phoneBook, Contact contactToCheck){
+        for (Contact contact : phoneBook.getContacts()) {
+            if(contact==null){
+                return true;
+            }
+        }
         return false;
     }
     //sprawdz czy ksiazka nie jest zapelniona
 
     public boolean isFull(PhoneBook phoneBook){
-        return false;
+        for (int i = 0; i < phoneBook.getContacts().length; i++) {
+            if (phoneBook.getContacts()[i] == null) {
+                return false;
+            }
+        }
+        return true;
     }
 
 
     //sprawdz czy mozna usunac
     public boolean canDeleteFromPhoneBook(PhoneBook phoneBook, int contactIndexToCheck){
-        return false;
+        if (contactIndexToCheck>=phoneBook.getContacts().length){
+            return false;
+        }
+        return true;
     }
 
+    public Printer getPrinter(){
+        return printer;
+    }
+
+
 }
+
+
