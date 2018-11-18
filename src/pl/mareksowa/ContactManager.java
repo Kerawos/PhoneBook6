@@ -9,7 +9,7 @@ public class ContactManager {
     }
 
     //usun
-    public PhoneBook deleteContact(PhoneBook phoneBook, Contact contactToDelete){
+    public PhoneBook deleteContact(PhoneBook phoneBook, int contactIndexToDelete){
 
         return null;
     }
@@ -23,9 +23,15 @@ public class ContactManager {
     public boolean canAddToPhoneBook(PhoneBook phoneBook, Contact contactToCheck){
         return false;
     }
+    //sprawdz czy ksiazka nie jest zapelniona
+
+    public boolean isFull(PhoneBook phoneBook){
+        return false;
+    }
+
 
     //sprawdz czy mozna usunac
-    public boolean canDeleteFromPhoneBook(PhoneBook phoneBook, Contact contactToCheck){
+    public boolean canDeleteFromPhoneBook(PhoneBook phoneBook, int contactIndexToCheck){
         return false;
     }
 
